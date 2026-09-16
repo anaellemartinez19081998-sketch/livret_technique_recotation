@@ -1,0 +1,199 @@
+﻿classe;cote_range;description
+AM;AM1;Periodicals. Societies. Collections, etc.
+AM;AM2;Congresses
+AM;AM3;Dictionaries. Encyclopedias
+AM;AM3.5;Collective
+AM;AM3.6.A-Z;Individual, A-Z
+AM;AM4;Early works through 1800
+AM;AM5;1801-
+AM;AM6;Textbooks
+AM;AM7;General special
+AM;AM8;Children's museums
+AM;AM9;Minor. Pamphlets, etc.
+AM;AM10;General works
+AM;AM11-13;United States (Table A14)
+AM;AM21-22;British America. Canada (Table A15)
+AM;AM23-24;Mexico (Table A15)
+AM;AM25;General works
+AM;AM26.A-Z;By region or country, A-Z
+AM;AM29;General works
+AM;AM30.A-Z;By region or country, A-Z
+AM;AM33;General works
+AM;AM34.A-Z;By region or country, A-Z
+AM;AM40;General works
+AM;AM41;General works
+AM;AM42.A-Z;Constituent countries, counties, etc., A-Z
+AM;AM43.A-Z;Cities, towns, etc., A-Z
+AM;AM44-45;Austria (Table A15)
+AM;AM45.2;Czechoslovakia. Czech Republic (Table A16)
+AM;AM45.3;Slovakia (Table A16)
+AM;AM45.5;Hungary (Table A16)
+AM;AM46-48;France (Table A14)
+AM;AM49-51;Germany (Table A14)
+AM;AM51.5;East Germany (Table A16)
+AM;AM52-53;Greece (Table A15)
+AM;AM54-55;Italy (Table A15)
+AM;AM56;Belgium (Table A16)
+AM;AM57-59;Holland (Table A14)
+AM;AM61.A-Z;Cities, towns, etc., A-Z
+AM;AM61.5;General works
+AM;AM62;Denmark (Table A16)
+AM;AM62.5;Iceland (Table A16)
+AM;AM63;Norway (Table A16)
+AM;AM64;Sweden (Table A16)
+AM;AM65;Spain (Table A16)
+AM;AM66;Portugal (Table A16)
+AM;AM67-68;Switzerland (Table A15)
+AM;AM70.A-Z;Other European states, A-Z
+AM;AM71;General works
+AM;AM72;China (Table A16)
+AM;AM73;India (Table A16)
+AM;AM75-76;Indonesia (Table A15)
+AM;AM77-78;Japan (Table A15)
+AM;AM79.A-Z;Other Asian countries, A-Z
+AM;AM79.4;General works
+AM;AM79.5.A-Z;Individual Arab countries, A-Z
+AM;AM80;General works
+AM;AM87-88;Egypt (Table A15)
+AM;AM89-90;South Africa (Table A15)
+AM;AM91.A-Z;Other African countries, A-Z
+AM;AM93-95;Australia (Table A14)
+AM;AM96-98;New Zealand (Table A14)
+AM;AM99-100;Pacific islands (Table A15)
+AM;AM101.A-Z;Individual museums. By place, A-Z
+AM;AM111;General works
+AM;AM121;Organization. Management
+AM;AM122;Finance
+AM;AM124;General works
+AM;AM124.33;Activity programs
+AM;AM124.37;Makerspaces in museums
+AM;AM125;Communication of museum information
+AM;AM127;General works
+AM;AM129;Furniture
+AM;AM130;Cleaning
+AM;AM133;General works
+AM;AM135;Collecting
+AM;AM139;Registration. Accessioning
+AM;AM141;General works
+AM;AM145;Special methods (not A-Z)
+AM;AM145.2;Special subjects
+AM;AM148;Security measures
+AM;AM151;General works
+AM;AM153;Classification. Arrangement
+AM;AM157;Labels. Marketing
+AM;AM158;Archives
+AM;AM160;People with disabilities
+AM;AM200;International
+AM;AM201;English
+AM;AM203;French
+AM;AM205;German
+AM;AM207.A-Z;Other, A-Z
+AM;AM211;Dictionaries
+AM;AM213;Directories
+AM;AM215;Computer network resources
+AM;AM221;History of collecting
+AM;AM223;Biography of collectors (Collective)
+AM;AM231;General works
+AM;AM235;Addresses, essays, lectures
+AM;AM236;Catalogs of collectibles
+AM;AM237;Collectibles as an investment
+AM;AM301;America
+AM;AM302;North America
+AM;AM303;General works
+AM;AM303.5;Catalogs of collectibles
+AM;AM304;Colonial period
+AM;AM305;19th-20th centuries
+AM;AM306;New England
+AM;AM307;South
+AM;AM308;West
+AM;AM311.A-Z;Cities, A-Z
+AM;AM313;Canada
+AM;AM314;Mexico
+AM;AM315;General works
+AM;AM316;Belize
+AM;AM317;Costa Rica
+AM;AM318;Guatemala
+AM;AM319;Honduras
+AM;AM320;Nicaragua
+AM;AM321;El Salvador
+AM;AM322;Panama
+AM;AM323;General works
+AM;AM324;Bahamas
+AM;AM325;Cuba
+AM;AM326;Haiti
+AM;AM327;Jamaica
+AM;AM328;Puerto Rico
+AM;AM329.A-Z;Other, A-Z
+AM;AM330;General works
+AM;AM331;Argentina
+AM;AM332;Bolivia
+AM;AM333;Brazil
+AM;AM334;Chile
+AM;AM335;Colombia
+AM;AM336;Ecuador
+AM;AM337;Guiana
+AM;AM338;Paraguay
+AM;AM339;Peru
+AM;AM340;Uruguay
+AM;AM341;Venezuela
+AM;AM342;General works
+AM;AM343;General works
+AM;AM344;England -- Local
+AM;AM345;Scotland
+AM;AM346;Ireland
+AM;AM347;Wales
+AM;AM348;Austria
+AM;AM348.2;Czechoslovakia. Czech Republic
+AM;AM348.3;Slovakia
+AM;AM348.5;Finland
+AM;AM349;France
+AM;AM350;Germany
+AM;AM351;Greece
+AM;AM351.5;Hungary
+AM;AM352;Italy
+AM;AM353;General works
+AM;AM354;Belgium
+AM;AM355;Holland
+AM;AM355.5;Poland
+AM;AM356;Russia
+AM;AM357;General works
+AM;AM358;Denmark
+AM;AM359;Iceland
+AM;AM360;Norway
+AM;AM361;Sweden
+AM;AM362;Spain
+AM;AM363;Portugal
+AM;AM364;Switzerland
+AM;AM365;General works
+AM;AM366;Turkey
+AM;AM367;Bulgaria
+AM;AM368;Albania
+AM;AM369;Romania
+AM;AM370;Yugoslavia
+AM;AM371.A-Z;Other, A-Z
+AM;AM372;General works
+AM;AM373;General. Levant. Turkey in Asia
+AM;AM374;Iran
+AM;AM374.5;Iraq
+AM;AM375;Israel
+AM;AM376;General. India. Pakistan. Ceylon
+AM;AM377;Vietnam
+AM;AM378;Thailand
+AM;AM379;Malaysia
+AM;AM380;Indonesia
+AM;AM381;Philippines
+AM;AM382;General works
+AM;AM383;China
+AM;AM384;Japan
+AM;AM384.5;Korea
+AM;AM385;Russia in Asia. Siberia
+AM;AM387;General works
+AM;AM388;Egypt
+AM;AM389.A-Z;Other divisions, A-Z
+AM;AM390;General works
+AM;AM391.A-Z;By state, A-Z
+AM;AM393;New Zealand
+AM;AM395;General works
+AM;AM396.A-Z;Individual islands or groups of islands, A-Z
+AM;AM401.A-Z;Individual heterogeneous collections, A-Z
+AM;AM501.A-Z;Collections of special classes of objects, A-Z
