@@ -1,0 +1,13 @@
+﻿comparaison;categorie;condition_a;condition_b;colonne_a;colonne_b;n;moyenne_a;moyenne_b;gain_a_moins_b;exact_match_a_%;exact_match_b_%;wilcoxon_stat;wilcoxon_p;wilcoxon_significatif;mcnemar_stat;mcnemar_p;mcnemar_significatif
+RAMEAU, plan réduit;effet_simple;ON;OFF;score_reduit_standard;score_reduit_rameau_off;201;2.3942;2.0758;0.3184;59.2;51.24;108.5;0.003487004892141382;True;7.0;0.005222879350185395;True
+RAMEAU, plan complet;effet_simple;ON;OFF;score_complet_standard;score_complet_rameau_off;201;1.9173;1.7914;0.1258;45.27;41.79;589.5;0.23830575981232394;False;17.0;0.34888887944907765;False
+Wikidata, plan réduit;effet_simple;ON;OFF;score_reduit_standard;score_reduit_wikidata_off;201;2.3942;2.3743;0.0199;59.2;58.71;6.0;0.6547208460185769;False;2.0;1.0;False
+Wikidata, plan complet;effet_simple;ON;OFF;score_complet_standard;score_complet_wikidata_off;201;1.9173;1.9228;-0.0056;45.27;45.77;43.0;0.8509980104087645;False;5.0;1.0;False
+Few-shot, plan réduit;effet_simple;ON;OFF;score_reduit_standard;score_reduit_fewshot_off;201;2.3942;2.6728;-0.2786;59.2;66.17;266.5;0.026856695507524397;True;13.0;0.03847730828420026;True
+Few-shot, plan complet;effet_simple;ON;OFF;score_complet_standard;score_complet_fewshot_off;201;1.9173;1.8229;0.0943;45.27;43.28;330.5;0.37565613271696807;False;14.0;0.5966148958541453;False
+Plan, standard;effet_plan;Réduit;Complet;score_reduit_standard;score_complet_standard;201;2.3942;1.9173;0.477;59.2;45.27;2016.0;0.03828066272982147;True;35.0;0.00609262967206472;True
+Plan, RAMEAU off;effet_plan;Réduit;Complet;score_reduit_rameau_off;score_complet_rameau_off;201;2.0758;1.7914;0.2844;51.24;41.79;1662.5;0.1292486994422768;False;32.0;0.047524889256531824;True
+Plan, Wikidata off;effet_plan;Réduit;Complet;score_reduit_wikidata_off;score_complet_wikidata_off;201;2.3743;1.9228;0.4515;58.71;45.77;1769.0;0.03732236912173578;True;33.0;0.008780930806975229;True
+Plan, few-shot off;effet_plan;Réduit;Complet;score_reduit_fewshot_off;score_complet_fewshot_off;201;2.6728;1.8229;0.8499;66.17;43.28;1294.5;1.6363336614758432e-05;True;24.0;2.2027598315502487e-06;True
+Pool few-shot, plan réduit;taille_pool;Petit (26);Élargi (94);score_reduit_standard;score_reduit_fewshot_elargi;201;2.3942;2.5335;-0.1393;59.2;62.69;725.0;0.35383690068472906;False;25.0;0.42704285650325524;False
+Pool few-shot, plan complet;taille_pool;Petit (26);Élargi (94);score_complet_standard;score_complet_fewshot_elargi;201;1.9173;2.3688;-0.4515;45.27;58.21;1088.0;0.0141839770220184;True;24.0;0.00337223333414807;True
