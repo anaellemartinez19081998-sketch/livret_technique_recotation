@@ -1,0 +1,174 @@
+# Pipeline de cotation LCC — Bibliothèque du Musée d'Orsay
+
+Code et données du volet technique du mémoire de master
+**« Cotation assistée par LLM en classification Library of Congress :
+évaluation d'un pipeline hybride pour la Bibliothèque du Musée d'Orsay »**.
+
+Ce dépôt contient : 
+- le pipeline d'évaluation par ablation qui compare
+six configurations de cotation automatique en sous-classe LCC, sur un
+corpus de 201 notices cotées par des bibliothécaires de l'INHA. 
+- L'outil BM'O d'aide à la recotation. 
+
+---
+
+## Contexte
+
+La Bibliothèque du Musée d'Orsay (BM'O) utilise la classification
+Library of Congress (LCC) pour coter ses ouvrages. La cotation
+manuelle est longue et demande une expertise fine en histoire de
+l'art. Ce travail évalue dans quelle mesure un LLM peut assister
+cette tâche, et surtout **quels éléments de contexte** (plan de
+cotation, sujets RAMEAU, exemples similaires) améliorent réellement
+la qualité des prédictions.
+
+Le pipeline est évalué sur un corpus de 201 notices issues du
+catalogue de l'INHA, dont la cote LCC réelle est connue. Le score
+de proximité entre cote prédite et cote réelle est calculé par
+distance au plus proche ancêtre commun (LCA) dans le barème LCC.
+
+---
+
+## Structure du dépôt
+
+```
+.
+├── README.md
+├── notebook_colab.ipynb              # notebook principal (Colab)
+├── corpus/
+│   ├── corpus_inha_test_consolide_propre.csv    # corpus d'évaluation (201 notices)
+│   ├── corpus_inha_100_propre.csv               # pool few-shot (100 notices)
+│   ├── plan_lcc_orsay.csv                       # plan réduit BM'O (502 sous-classes)
+│   ├── plan_lcc_officiel_reel_N.csv             # plan officiel LC, classe N
+│   └── plan_lcc_officiel_reel_AM.csv            # plan officiel LC, classe AM
+├── resultats/                                   # CSV produits par les 6 runs
+│   ├── test1_baseline.csv
+│   ├── test2_plan_officiel.csv
+│   ├── test3_rameau_off.csv
+│   ├── test4_fewshot_off.csv
+│   ├── test5_rameau_off_plan_officiel.csv
+│   └── test6_fewshot_off_plan_officiel.csv
+└── annexes/
+    └── nettoyage_corpus.ipynb          # préparation des fichiers _propre.csv
+```
+
+---
+
+## Installation et exécution
+
+### Prérequis
+
+- Un compte Google Colab (gratuit).
+- Une clé API Mistral (gratuite sur [console.mistral.ai](https://console.mistral.ai)).
+- Une clé API OpenRouter (gratuite sur [openrouter.ai/keys](https://openrouter.ai/keys)).
+- Les 5 fichiers CSV du dossier `corpus/` uploadés dans la session Colab.
+
+### Étapes
+
+1. Ouvrir `notebook_colab.ipynb` dans Google Colab.
+2. Ajouter les deux clés API dans les **Secrets Colab** :
+   - `MISTRAL_API_KEY` = votre clé
+   - `OPENROUTER_API_KEY` = votre clé
+3. Exécuter la **cellule 1** (setup) une seule fois.
+4. Exécuter la **cellule 2** (test générique) six fois en changeant
+   les 4 lignes `PLAN`, `RAMEAU`, `FEWSHOT`, `FICHIER` à chaque fois.
+   La checklist des 6 configurations est en commentaire dans la cellule.
+5. Chaque run produit un CSV dans `resultats/`.
+
+### Temps d'exécution
+
+- Setup : ~2 minutes (téléchargement du barème LCC + embeddings few-shot).
+- Un run sur les 201 notices : ~10 minutes selon le quota API.
+- **Total des 6 runs : 1 h à 2 h.**
+
+---
+
+## Les 6 configurations évaluées
+
+| Run | Plan | RAMEAU | Few-shot | Fichier |
+|-----|------|--------|----------|---------|
+| 1 | Réduit BM'O | ON | ON | `test1_baseline.csv` |
+| 2 | Officiel LCC | ON | ON | `test2_plan_officiel.csv` |
+| 3 | Réduit BM'O | OFF | ON | `test3_rameau_off.csv` |
+| 4 | Réduit BM'O | ON | OFF | `test4_fewshot_off.csv` |
+| 5 | Officiel LCC | OFF | ON | `test5_rameau_off_plan_officiel.csv` |
+| 6 | Officiel LCC | ON | OFF | `test6_fewshot_off_plan_officiel.csv` |
+
+**Légende :**
+- *Plan réduit* = plan curaté par un bibliothécaire de la BM'O (502 sous-classes).
+- *Plan officiel* = barème LCC officiel (texte intégral LC pour les classes N et AM, outline résumé pour les autres).
+- *RAMEAU ON/OFF* = sujets RAMEAU présents ou retirés du prompt.
+- *Few-shot ON/OFF* = 3 exemples similaires présents ou retirés du prompt.
+
+---
+
+## Format des CSV produits
+
+Chaque fichier contient une ligne par notice :
+
+| Colonne | Description |
+|---------|-------------|
+| `Titre` | Titre de la notice |
+| `classe_reelle` | Grande classe LCC (imposée) |
+| `cote_reelle` | Cote LCC de référence (donnée par l'INHA) |
+| `cote_predite` | Cote prédite par le LLM |
+| `score` | Score de proximité 0–4 (LCA sur la sous-classe) |
+| `source` | Fournisseur LLM utilisé (`LLM Mistral` ou `LLM OpenRouter`) |
+
+**Lecture du score :**
+- `4.0` = numéro de sous-classe exact
+- `0 < score < 4` = proximité LCA (plus le score est haut, plus c'est proche)
+- `0.0` = sous-classe très éloignée dans la même classe (LCA racine)
+- Les notices avec `source` commençant par `ERREUR` doivent être exclues des statistiques.
+
+---
+
+## Choix méthodologiques
+
+**Température = 0.1.** Fixée basse pour réduire la variance entre
+deux exécutions du même pipeline. Les modèles de langage ne sont
+pas totalement déterministes, même à basse température : les scores
+absolus peuvent varier légèrement d'une session à l'autre.
+
+**Découplage RAMEAU / few-shot.** Quand l'option RAMEAU est
+désactivée, les sujets sont retirés du prompt, mais ils restent
+utilisés pour chercher les exemples similaires dans le pool
+few-shot. Ce découplage volontaire évite de confondre deux effets
+(l'effet RAMEAU et l'effet du choix des exemples).
+
+**Score LCA sur outline.** Le score de proximité utilise l'outline
+officiel de la LoC (497 préfixes, source
+[thisismattmiller/lcc-pdf-to-json](https://github.com/thisismattmiller/lcc-pdf-to-json)),
+plus grossier que les schedules complets. Voir la section Limites.
+
+---
+
+## Limites connues
+
+- Le plan officiel complet n'est disponible que pour les classes N et AM.
+  Pour les 16 autres classes, le test « plan officiel » repose sur
+  l'outline résumé, plus grossier. Cela rend l'effet mesuré conservateur.
+- Le score LCA est calculé sur l'outline officiel, pas sur le texte
+  intégral des schedules. Deux sous-classes voisines dans le plan
+  détaillé peuvent apparaître plus éloignées qu'elles ne le sont.
+- Le LLM ne fixe pas `temperature=0` strict (certains modèles ne
+  l'acceptent pas). Les scores ne sont donc pas reproductibles au centième.
+- Le corpus est restreint à 18 classes LCC et à des notices francophones.
+  Les conclusions ne sont pas directement généralisables à d'autres fonds.
+
+
+## Citation
+
+Si vous utilisez ce code ou ces données, merci de citer :
+
+```
+[MARTINEZ Anaëlle]. (2026). Pipeline de cotation LCC assistée par LLM
+pour la Bibliothèque du Musée d'Orsay. Mémoire de master,
+[Ecole Nationale des Chartes, PSL]
+```
+
+
+## Remerciements
+
+- L'équipe de la Bibliothèque du Musée d'Orsay pour le plan de
+  cotation curaté et les retours méthodologiques.
