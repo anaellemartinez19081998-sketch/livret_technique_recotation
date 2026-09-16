@@ -37,7 +37,7 @@ distance au plus proche ancêtre commun (LCA) dans le barème LCC.
 ├── notebook_colab.ipynb              # notebook principal (Colab)
 ├── corpus/
 │   ├── corpus_inha_test_consolide_propre.csv    # corpus d'évaluation (201 notices)
-│   ├── corpus_inha_100_propre.csv               # pool few-shot (100 notices)
+│   ├── corpus_inha_100_propre.csv               # pool few-shot (27 notices)
 │   ├── plan_lcc_orsay.csv                       # plan réduit BM'O (502 sous-classes)
 │   ├── plan_lcc_officiel_reel_N.csv             # plan officiel LC, classe N
 │   └── plan_lcc_officiel_reel_AM.csv            # plan officiel LC, classe AM
