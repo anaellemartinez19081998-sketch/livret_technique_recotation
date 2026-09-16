@@ -42,14 +42,9 @@ distance au plus proche ancêtre commun (LCA) dans le barème LCC.
 │   ├── plan_lcc_officiel_reel_N.csv             # plan officiel LC, classe N
 │   └── plan_lcc_officiel_reel_AM.csv            # plan officiel LC, classe AM
 ├── resultats/                                   # CSV produits par les 6 runs
-│   ├── test1_baseline.csv
-│   ├── test2_plan_officiel.csv
-│   ├── test3_rameau_off.csv
-│   ├── test4_fewshot_off.csv
-│   ├── test5_rameau_off_plan_officiel.csv
-│   └── test6_fewshot_off_plan_officiel.csv
-└── annexes/
-    └── nettoyage_corpus.ipynb          # préparation des fichiers _propre.csv
+│   ├── export_complet_10runs.                   # CSV avec les résultats exploités dans le mémoire (on a enlevé la viarable WIKIDATA)
+│   └── statistiques_completes_12_comparaisons.csv      # CSV avec les statistiques des résultats
+
 ```
 
 ---
